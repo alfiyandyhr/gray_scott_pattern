@@ -51,9 +51,9 @@ NumPy, SciPy, Matplotlib
 ```
 # Results
 
-### Original Image
+### Patterns growth
 <p float="center">
-  <img src="pattern_growth.GIF" width="100%"/>
+  <img src="pattern_growth.gif" width="100%"/>
 </p>
 
 # Reference
