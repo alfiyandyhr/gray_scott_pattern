@@ -15,39 +15,39 @@ NumPy, SciPy, Matplotlib
 # Usage
 ********************************************************************************
 ```python
-		N = 256       # Grid size
-		T = 5000     # Total time
-		dT = 1.0      # Time step
-		n = int(T/dT) # Number of iterations
-		Da, Db, F, K = 0.14, 0.06, 0.035, 0.065  # Coefficients for Cell Division Pattern
-    # Da, Db, F, K = 0.16, 0.08, 0.060, 0.062  # Coefficients for Coral Pattern
-		# Da, Db, F, K = 0.12, 0.08, 0.020, 0.050  # Coefficients for Spiral Pattern
-		# Da, Db, F, K = 0.16, 0.08, 0.035, 0.060  # Coefficients for Middle East Pattern
+	N = 256       # Grid size
+	T = 5000     # Total time
+	dT = 1.0      # Time step
+	n = int(T/dT) # Number of iterations
+	Da, Db, F, K = 0.14, 0.06, 0.035, 0.065  # Coefficients for Cell Division Pattern
+	# Da, Db, F, K = 0.16, 0.08, 0.060, 0.062  # Coefficients for Coral Pattern
+	# Da, Db, F, K = 0.12, 0.08, 0.020, 0.050  # Coefficients for Spiral Pattern
+	# Da, Db, F, K = 0.16, 0.08, 0.035, 0.060  # Coefficients for Middle East Pattern
 
-		fig, axes = plt.subplots(3,3, figsize=(8,8), dpi=400, facecolor='w', edgecolor='k')
-		step_plot = n // 9
+	fig, axes = plt.subplots(3,3, figsize=(8,8), dpi=400, facecolor='w', edgecolor='k')
+	step_plot = n // 9
 
-		# Simulation part
-		t1 = time.time()
+	# Simulation part
+	t1 = time.time()
 
-		A, B = initialize(N)
-		L = laplacian(N)
+	A, B = initialize(N)
+	L = laplacian(N)
 
-		for i in range(n):
-			# Iteration update
-			A, B = update(A, B, dT, Da, Db, F, K, L)
+	for i in range(n):
+		# Iteration update
+		A, B = update(A, B, dT, Da, Db, F, K, L)
 
-			# Plot at 9 different times
-			if i % step_plot == 0 and i < 9 * step_plot:
-				ax = axes.flat[i // step_plot]
-				drawPattern(A, ax=ax)
-				ax.set_title(f'iter = {i}')
-		    
-		fig.suptitle(f'Cell Division Pattern',fontsize=20)
-		t2 = time.time()
+		# Plot at 9 different times
+		if i % step_plot == 0 and i < 9 * step_plot:
+			ax = axes.flat[i // step_plot]
+			drawPattern(A, ax=ax)
+			ax.set_title(f'iter = {i}')
 
-		print(f'Simulation time = {t2-t1} seconds')
-		plt.show()
+	fig.suptitle(f'Cell Division Pattern',fontsize=20)
+	t2 = time.time()
+
+	print(f'Simulation time = {t2-t1} seconds')
+	plt.show()
 ```
 # Results
 
